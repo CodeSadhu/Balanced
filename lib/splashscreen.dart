@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:balanced/onboarding/onboard_1.dart';
 import 'package:balanced/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/logo.svg',
+            SvgPicture.asset('assets/images/logo.svg',
                 fit: BoxFit.cover, height: 115, width: 141),
             Text('Balanced',
                 style: GoogleFonts.poppins(
@@ -39,22 +38,49 @@ class SplashScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       fontSize: 18)),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 39),
-              width: 200,
-              height: 50,
-              child: Text('Your financial freedom starts today!',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                  )),
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 1,
+              child: Container(
+                margin: const EdgeInsets.only(top: 39),
+                width: 200,
+                height: 50,
+                child: Text('Your financial freedom starts today!',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    )),
+              ),
             ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(shape: CircleBorder()),
-                onPressed: () {},
-                child: const Icon(Icons.arrow_forward_ios_rounded))
+            Flexible(
+              fit: FlexFit.loose,
+              flex: 1,
+              // alignment: Alignment.bottomCenter,
+              // margin: const EdgeInsets.only(top: 40),
+              // height: 60,
+              child: ElevatedButton(
+                // style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(const CircleBorder()),
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(20)),
+                    backgroundColor: MaterialStateProperty.all(Colors.white)),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const OnboardOne()));
+                },
+                child: const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: gradientColor1,
+                  size: 30,
+                ),
+              ),
+            )
           ],
         ),
       ),
