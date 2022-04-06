@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class OnboardOne extends StatelessWidget {
   const OnboardOne({Key? key}) : super(key: key);
@@ -9,7 +8,11 @@ class OnboardOne extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SvgPicture.asset('assets/images/onboard_1.svg'),
+          Positioned(
+            width: 410,
+            top: 80,
+            child: Image.asset('assets/images/onboard_1.png', fit: BoxFit.fill),
+          )
         ],
       ),
     );

@@ -20,23 +20,33 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/images/logo.svg',
-                fit: BoxFit.cover, height: 115, width: 141),
-            Text('Balanced',
-                style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 35)),
+            SvgPicture.asset(
+              'assets/images/logo.svg',
+              fit: BoxFit.cover,
+              height: 115,
+              width: 141,
+            ),
+            Text(
+              'Balanced',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 35,
+              ),
+            ),
             Container(
               margin: const EdgeInsets.only(top: 5),
               width: 230,
               height: 40,
-              child: Text('By Reva',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18)),
+              child: Text(
+                'By Reva',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
             ),
             Flexible(
               fit: FlexFit.tight,
@@ -45,13 +55,15 @@ class SplashScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 39),
                 width: 200,
                 height: 50,
-                child: Text('Your financial freedom starts today!',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    )),
+                child: Text(
+                  'Your financial freedom starts today!',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                  ),
+                ),
               ),
             ),
             Flexible(
@@ -63,16 +75,18 @@ class SplashScreen extends StatelessWidget {
               child: ElevatedButton(
                 // style: ElevatedButton.styleFrom(shape: const CircleBorder()),
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all(const CircleBorder()),
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(20)),
-                    backgroundColor: MaterialStateProperty.all(Colors.white)),
+                  shape: MaterialStateProperty.all(const CircleBorder()),
+                  padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
                 onPressed: () {
                   Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              const OnboardOne()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const OnboardOne(),
+                      maintainState: false,
+                    ),
+                  );
                 },
                 child: const Icon(
                   Icons.arrow_forward_ios_rounded,
@@ -85,11 +99,12 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-        colors: backgroundGradients,
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      )),
+        gradient: LinearGradient(
+          colors: backgroundGradients,
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
     );
   }
 }
